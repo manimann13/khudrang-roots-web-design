@@ -13,6 +13,6 @@ All copy comes from the live site.
 
 ## View it
 
-Open `design/directions/final/index.html` in a browser, or visit the GitHub Pages site.
+Visit https://manimann13.github.io/khudrang-roots-web-design/ or open `index.html` locally.
 
 Plain HTML, CSS and JavaScript, with no build step and no frameworks.

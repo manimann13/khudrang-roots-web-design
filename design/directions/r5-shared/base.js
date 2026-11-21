@@ -9,6 +9,8 @@
   'use strict';
   var root = document.documentElement;
   root.classList.add('js');
+  // assets/ found relative to this script, so the page works from any folder (the repo root or design/directions/*)
+  var ASSETS = new URL('../../../assets/', document.currentScript.src).href;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var NS = 'http://www.w3.org/2000/svg';
   function $(s, c) { return (c || document).querySelector(s); }
@@ -96,7 +98,7 @@
   window.addEventListener('kr:opt', function (e) { if (e.detail.key === 'details') applyDetails(); });
 
   /* ─── geo data, fetched once ─── */
-  var geoP = fetch('../../../assets/map/panjab-geo.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  var geoP = fetch(ASSETS + 'map/panjab-geo.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
 
   /* ═══════════ Research map ═══════════ */
   var mapEl = $('[data-map-el]');
@@ -150,7 +152,7 @@
   }
   if (mapEl) geoP.then(drawMap).catch(function () {
     var img = document.createElement('img');
-    img.src = '../../../assets/map/panjab-map-stitched-on-indigo.svg'; img.alt = '';
+    img.src = ASSETS + 'map/panjab-map-stitched-on-indigo.svg'; img.alt = '';
     mapEl.appendChild(img);
   });
 
